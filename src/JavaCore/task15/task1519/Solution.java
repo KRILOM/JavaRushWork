@@ -1,50 +1,63 @@
-//package JavaCore.task15.task1519;
-//
-//import java.io.BufferedReader;
-//import java.io.IOException;
-//import java.io.InputStreamReader;
-//
-///*
-//Разные методы для разных типов
-//*/
-//
-//public class Solution {
-//    public static void main(String[] args) throws IOException {
-//        //напиште тут ваш код
-//        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-//
-//        while(!reader.readLine().equals("exit")){
-//            String s = reader.readLine();
-//            int a = Integer.parseInt(s);
-//            if(s.contains(".")){
-//                print(Double.parseDouble(s));
-//            } else if (a > 0 && a < 128){
-//                print(Short.parseShort(s));
-////меньше либо равно нулю или больше либо равно 128, вызвать метод print() для Integer;
-//            } else if (a <= 0 || a >= 128){
-//                print(a);
-//            }else{
-//                print(s);
-//            }
-//        }
-//    }
-//
-//    public static void print(Double value) {
-//        System.out.println("Это тип Double, значение " + value);
-//    }
-//
-//    public static void print(String value) {
-//        System.out.println("Это тип String, значение " + value);
-//    }
-//
-//    public static void print(short value) {
-//        System.out.println("Это тип short, значение " + value);
-//    }
-//
-//    public static void print(Integer value) {
-//        System.out.println("Это тип Integer, значение " + value);
-//    }
-//}
+package JavaCore.task15.task1519;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+/*
+Разные методы для разных типов
+*/
+
+public class Solution {
+    public static void main(String[] args) throws IOException {
+        //напиште тут ваш код
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+
+        while(true){
+            String letter = reader.readLine();
+            if(letter.equals("exit")){
+                break;
+            } else {
+                if(letter.contains(".")){
+                    try {
+                    print(Double.parseDouble(letter));
+                    } catch (NumberFormatException ex){
+                        print(letter);
+                    }
+                } else {
+                    try {
+                        if (Integer.parseInt(letter) > 0 && Integer.parseInt(letter) < 128) {
+                            print(Short.parseShort(letter));
+                        } else if (Integer.parseInt(letter) <= 0 || Integer.parseInt(letter) >= 128) {
+                            print(Integer.parseInt(letter));
+                        } else {
+                            print(letter);
+                        }
+                    } catch (NumberFormatException ex){
+                            print(letter);
+                    }
+                }
+            }
+        }
+    }
+
+
+    public static void print(Double value) {
+        System.out.println("Это тип Double, значение " + value);
+    }
+
+    public static void print(String value) {
+        System.out.println("Это тип String, значение " + value);
+    }
+
+    public static void print(short value) {
+        System.out.println("Это тип short, значение " + value);
+    }
+
+    public static void print(Integer value) {
+        System.out.println("Это тип Integer, значение " + value);
+    }
+}
 //
 ////В этой задаче тебе нужно:
 ////
